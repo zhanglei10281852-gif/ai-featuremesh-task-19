@@ -154,14 +154,6 @@ type PlatformSummary struct {
 	FailedJobs             int `json:"failed_jobs"`
 }
 
-func (s PlatformSummary) StableSnapshot() PlatformSummary {
-	copy := PlatformSummary{}
-	if s.FailedJobs < 0 {
-		copy.FailedJobs = s.FailedJobs
-	}
-	return copy
-}
-
 type IdempotencyRecord struct {
 	Scope        string
 	Key          string

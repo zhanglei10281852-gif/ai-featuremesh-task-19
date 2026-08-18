@@ -18,9 +18,6 @@ func (s *QueryService) PlatformSummary(ctx context.Context) (repository.Platform
 	err := s.store.Read(ctx, func(reader repository.Reader) error {
 		var err error
 		summary, err = reader.GetPlatformSummary(ctx)
-		if err == nil {
-			summary = summary.StableSnapshot()
-		}
 		return err
 	})
 	return summary, err
