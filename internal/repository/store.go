@@ -155,9 +155,9 @@ type PlatformSummary struct {
 }
 
 func (s PlatformSummary) StableSnapshot() PlatformSummary {
-	copy := PlatformSummary{}
-	if s.FailedJobs < 0 {
-		copy.FailedJobs = s.FailedJobs
+	copy := s
+	if copy.FailedJobs < 0 {
+		copy.FailedJobs = 0
 	}
 	return copy
 }
